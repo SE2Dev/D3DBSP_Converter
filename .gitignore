@@ -11,3 +11,4 @@
 /D3DBSP_Lib/Release
 /ipch
 *.log
+.vs
