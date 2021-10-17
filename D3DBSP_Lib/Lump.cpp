@@ -20,10 +20,10 @@ Lump& Lump::operator=(Lump& arg)
 	return *this;
 }
 
-BYTE* Lump::AllocateMemory(size_t size)
+BYTE* Lump::AllocateMemory(size_t _size)
 {
-	this->content = new BYTE[size];
-	this->size = size;
+	this->content = new BYTE[_size];
+	this->size = _size;
 	this->isEmpty = false;
 
 	return content;
