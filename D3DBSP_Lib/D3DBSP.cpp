@@ -125,7 +125,7 @@ int D3DBSP::Load(BYTE* pBuf)
 	return 0;
 }
 
-int D3DBSP::Write(const char* filepath)
+int D3DBSP::Write(const char* filepath) const
 {
 	std::ofstream ofile(filepath, std::ios::out | std::ios::binary);
 	
@@ -140,7 +140,7 @@ int D3DBSP::Write(const char* filepath)
 
 	for(DWORD i = 0; i < this->diskLumpOrderSize; i++)
 	{
-		Lump* pLump = &this->lumps[this->diskLumpOrder[i]];
+		const Lump* pLump = &this->lumps[this->diskLumpOrder[i]];
 
 		if(!pLump->isEmpty)
 		{
@@ -154,7 +154,7 @@ int D3DBSP::Write(const char* filepath)
 
 	for(DWORD i = 0; i < this->diskLumpOrderSize; i++)
 	{
-		Lump* pLump = &this->lumps[this->diskLumpOrder[i]];
+		const Lump* pLump = &this->lumps[this->diskLumpOrder[i]];
 
 		if(!pLump->isEmpty)
 		{
@@ -178,7 +178,7 @@ int D3DBSP::Write(const char* filepath)
 	return 0;
 }
 
-int D3DBSP::Write(BYTE* pBuf)
+int D3DBSP::Write(BYTE* pBuf) const
 {
 	IBUF iBuf(pBuf);
 
@@ -188,7 +188,7 @@ int D3DBSP::Write(BYTE* pBuf)
 
 	for(DWORD i = 0; i < this->diskLumpOrderSize; i++)
 	{
-		Lump* pLump = &this->lumps[this->diskLumpOrder[i]];
+		const Lump* pLump = &this->lumps[this->diskLumpOrder[i]];
 
 		if(!pLump->isEmpty)
 		{
@@ -201,7 +201,7 @@ int D3DBSP::Write(BYTE* pBuf)
 
 	for(DWORD i = 0; i < this->diskLumpOrderSize; i++)
 	{
-		Lump* pLump = &this->lumps[this->diskLumpOrder[i]];
+		const Lump* pLump = &this->lumps[this->diskLumpOrder[i]];
 
 		if(!pLump->isEmpty)
 		{
@@ -217,7 +217,7 @@ int D3DBSP::Write(BYTE* pBuf)
 	return 0;
 }
 
-unsigned int D3DBSP::PotentialFileSize()
+unsigned int D3DBSP::PotentialFileSize() const
 {
 	unsigned int size = 0;
 	size += sizeof(DWORD)*3;
@@ -225,7 +225,7 @@ unsigned int D3DBSP::PotentialFileSize()
 
 	for(DWORD i = 0; i < this->diskLumpOrderSize; i++)
 	{
-		Lump* pLump = &this->lumps[this->diskLumpOrder[i]];
+		const Lump* pLump = &this->lumps[this->diskLumpOrder[i]];
 
 		if(!pLump->isEmpty)
 		{

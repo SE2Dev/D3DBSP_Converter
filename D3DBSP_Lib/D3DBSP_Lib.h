@@ -154,10 +154,10 @@ public:
 
 	int Load(const char* filepath);
 	int Load(BYTE* pBuf);
-	int Write(const char* filepath);
-	int Write(BYTE* pBuf);
+	int Write(const char* filepath) const;
+	int Write(BYTE* pBuf) const;
 
-	size_t PotentialFileSize();
+	size_t PotentialFileSize() const;
 
 	int Convert(BSPVERSION_TYPE);
 	int ConvertFrom(D3DBSP*, BSPVERSION_TYPE);
